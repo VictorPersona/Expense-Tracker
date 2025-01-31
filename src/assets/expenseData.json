@@ -1,0 +1,6 @@
+[
+  { "id": 486, "type": "Food", "amount": 500, "date": "2025-01-30" },
+  { "id": 481, "type": "Transport", "amount": 200, "date": "2025-01-29" },
+  { "id": 482, "type": "Shopping", "amount": 1500, "date": "2025-01-28" },
+  { "id": 484, "type": "Entertainment", "amount": 800, "date": "2025-01-27" }
+]
