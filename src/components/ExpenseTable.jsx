@@ -1,21 +1,26 @@
 import React from 'react'
 import expenseData from '../assets/expenseData.json'
 import Expense from './Expense'
-function ExpenseTable() {
+
+function ExpenseTable({ expenseArray }) {
   return (
     <div>
-      <h3>Expesne Table</h3>
+      <h3>Expense Table</h3>
 
-      {expenseData.map((expense) => {
-        return (
-          <Expense
-            date={expense.date}
-            type={expense.type}
-            amount={expense.amount}
-            key={expense.id}
-          />
-        )
-      })}
+      {expenseArray.length === 0 ? (
+        <h4>Add an expense</h4>
+      ) : (
+        expenseArray.map((expense) => {
+          return (
+            <Expense
+              date={expense.date}
+              type={expense.type}
+              amount={expense.amount}
+              key={expense.id}
+            />
+          )
+        })
+      )}
     </div>
   )
 }

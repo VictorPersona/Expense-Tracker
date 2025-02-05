@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-function CreateExpense() {
+function CreateExpense({ addExpense }) {
   const [expenseType, setExpenseType] = useState('')
   const [expenseDate, setExpenseDate] = useState('')
   const [expenseAmount, setExpenseAmount] = useState('')
@@ -14,6 +14,15 @@ function CreateExpense() {
     setExpenseDate(e.target.value)
   }
 
+  const handleOnClick = () => {
+    const expenseToBeAdded = {
+      id: crypto.randomUUID(),
+      type: expenseType,
+      amount: expenseAmount,
+      date: expenseDate,
+    }
+    addExpense(expenseToBeAdded)
+  }
   useEffect(() => {
     const today = new Date()
     const formattedDate = today.toISOString().split('T')[0]
@@ -34,7 +43,9 @@ function CreateExpense() {
         onChange={amountOnChange}
       />
       <input type="date" value={expenseDate} onChange={amountOnChange} />
-      <button>Create</button>
+      <button type="button" className="btn btn-primary" onClick={handleOnClick}>
+        Create
+      </button>
     </div>
   )
 }
