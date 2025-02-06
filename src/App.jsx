@@ -15,7 +15,10 @@ function App() {
     <div>
       <h1>Expense Tracker</h1>
       <CreateExpense addExpense={addExpense} />
-      <ExpenseTable expenseArray={expenseArray} />
+      <ExpenseTable
+        expenseArray={expenseArray}
+        setExpenseArray={setExpenseArray}
+      />
     </div>
   )
 }

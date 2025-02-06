@@ -2,7 +2,13 @@ import React from 'react'
 import expenseData from '../assets/expenseData.json'
 import Expense from './Expense'
 
-function ExpenseTable({ expenseArray }) {
+function ExpenseTable({ expenseArray, setExpenseArray }) {
+  const deleteExpense = (expenseToDelete) => {
+    const filteredExpenseArray = expenseArray.filter(
+      (expense) => expense.id !== expenseToDelete.id
+    )
+    setExpenseArray(filteredExpenseArray)
+  }
   return (
     <div>
       <h3>Expense Table</h3>
@@ -13,9 +19,8 @@ function ExpenseTable({ expenseArray }) {
         expenseArray.map((expense) => {
           return (
             <Expense
-              date={expense.date}
-              type={expense.type}
-              amount={expense.amount}
+              expenseDetails={expense}
+              deleteExpense={deleteExpense}
               key={expense.id}
             />
           )
